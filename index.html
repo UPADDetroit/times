@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPAD Times — Monthly Community Magazine</title>
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="UPAD Times — Monthly Community Magazine" />
+<meta property="og:description" content="Celebrating Our Heritage · Connecting Our Community · Honoring Our Roots" />
+<meta property="og:image" content="https://upaddetroit.github.io/times/upad-times-issue2-og.png" />
+<meta property="og:url" content="https://www.upad.us/times" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="UPAD Times" />
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00; --saffron-light: #FF8C33; --deep-navy: #1A2744;
+    --gold: #C8930A; --gold-light: #F5C842; --cream: #FDF6EC;
+    --border: #E8DCC8; --text-dark: #1C1C1C; --text-mid: #3D3D3D; --text-light: #6B6B6B;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#E0D4BC; font-family:'Lora',Georgia,serif; color:var(--text-dark); margin:0; padding:0; overflow-x:hidden; }
+  .content-wrap { max-width:860px; margin:0 auto; padding-bottom:0; }
+  
+  /* MASTHEAD */
+  .masthead-top { background:var(--saffron); text-align:center; padding:7px 16px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:2.5px; color:white; text-transform:uppercase; width:100%; }
+  .masthead-main { background:var(--deep-navy); border-bottom:2px solid var(--gold); padding:14px 20px 16px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .masthead-row { width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .logo-wrap { display:flex; align-items:center; gap:8px; flex-shrink:0; max-width:48%; }
+  .logo-wrap img { width:56px; height:56px; border-radius:50%; object-fit:cover; background:white; flex-shrink:0; }
+  .logo-tagline { font-family:'Montserrat',sans-serif; font-size:9px; color:var(--gold-light); letter-spacing:0.3px; line-height:1.6; }
+  .logo-tagline strong { display:block; color:var(--gold-light); font-size:10.5px; letter-spacing:0.8px; text-transform:uppercase; font-weight:700; line-height:1.3; }
+  .issue-meta { flex-shrink:0; text-align:right; font-family:'Montserrat',sans-serif; font-size:8px; color:var(--gold-light); line-height:1.8; max-width:28%; }
+  .issue-meta strong { display:block; color:var(--gold-light); font-size:10px; font-weight:700; }
+  .paper-title { font-family:'Cormorant Garamond','Times New Roman',serif; font-size:clamp(36px,13.5vw,96px); font-weight:600; color:white; letter-spacing:4px; line-height:1; text-align:center; width:100%; padding:10px 8px 2px; border-top:1px solid rgba(255,255,255,0.12); margin-top:4px; text-transform:uppercase; overflow:hidden; white-space:nowrap; }
+  .paper-subline { font-family:'Cormorant Garamond','Times New Roman',serif; font-style:italic; font-size:14px; color:var(--gold-light); letter-spacing:1px; text-align:center; font-weight:300; }
+  
+  /* ISSUES SECTION */
+  .cover-label { background:var(--saffron); color:white; font-family:'Montserrat',sans-serif; font-size:8.5px; font-weight:800; letter-spacing:2px; text-transform:uppercase; padding:7px 20px; display:block; }
+  
+  .issues-grid { background:var(--cream); display:grid; grid-template-columns:1fr; gap:1px; padding:1px; }
+  @media(min-width:700px){ .issues-grid{ grid-template-columns:1fr 1fr; } }
+  
+  .issue-card { background:white; border:1px solid var(--border); text-decoration:none; display:block; transition:transform 0.3s ease, box-shadow 0.3s ease; }
+  .issue-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+  
+  .issue-header { background:var(--deep-navy); padding:18px 20px; border-bottom:3px solid var(--saffron); }
+  .issue-number { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:800; letter-spacing:2px; color:var(--gold-light); text-transform:uppercase; margin-bottom:6px; }
+  .issue-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(22px,4vw,28px); font-weight:900; color:white; line-height:1.15; margin-bottom:6px; }
+  .issue-date { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:600; letter-spacing:1.5px; color:rgba(255,255,255,0.5); text-transform:uppercase; }
+  
+  .issue-content { padding:20px; }
+  .issue-topics { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+  .topic-tag { background:var(--saffron); color:white; font-family:'Montserrat',sans-serif; font-size:7px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 8px; border-radius:2px; }
+  .topic-tag.navy { background:var(--deep-navy); }
+  
+  .issue-description { font-family:'Lora',Georgia,serif; font-size:14px; line-height:1.7; color:var(--text-mid); margin-bottom:16px; }
+  .read-more { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:800; letter-spacing:1.5px; color:var(--saffron); text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; }
+  .read-more::after { content:'→'; font-size:12px; }
+  
+  /* FOOTER */
+  .footer { background:var(--cream); border-top:1px solid var(--border); padding:30px 24px; text-align:center; }
+  .footer-text { font-family:'Lora',Georgia,serif; font-size:13px; font-style:italic; color:var(--text-mid); margin-bottom:12px; }
+  .footer-links { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .footer-link { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:1.5px; color:var(--saffron); text-transform:uppercase; text-decoration:none; }
+  .footer-link:hover { color:var(--deep-navy); }
+</style>
+</head>
+<body>
+<!-- MASTHEAD -->
+<div class="masthead-top">Celebrating Our Heritage &nbsp;·&nbsp; Connecting Our Community &nbsp;·&nbsp; Honoring Our Roots</div>
+<div class="content-wrap">
+<div class="masthead-main">
+  <div class="masthead-row">
+    <div class="logo-wrap">
+      <img src="https://i.imgur.com/MwD7DGH.png" alt="UPAD Times Logo">
+      <div class="logo-tagline">
+        <strong>Uttar Pradesh American Diaspora</strong>
+        Voice of Our Heritage · Bridge to Our Future
+      </div>
+    </div>
+    <div class="issue-meta">
+      <strong>ARCHIVE</strong>
+      All Issues<br>2026
+    </div>
+  </div>
+  <div class="paper-title">UPAD TIMES</div>
+  <div class="paper-subline">Honoring Roots · Building Bridges · Shaping Futures</div>
+</div>
+
+<span class="cover-label">&#10022; All Issues &mdash; Monthly Community Magazine</span>
+
+<!-- ISSUES GRID -->
+<div class="issues-grid">
+  
+  <!-- Issue 2 -->
+  <a href="UPAD_Times_Issue02_May2026.html" class="issue-card">
+    <div class="issue-header">
+      <div class="issue-number">Issue 2</div>
+      <h2 class="issue-title">Varanasi: Ancient Soul, Modern Spine</h2>
+      <div class="issue-date">May 2026</div>
+    </div>
+    <div class="issue-content">
+      <div class="issue-topics">
+        <span class="topic-tag">Development</span>
+        <span class="topic-tag navy">History</span>
+        <span class="topic-tag">Culture</span>
+        <span class="topic-tag navy">Food</span>
+      </div>
+      <p class="issue-description">
+        The city that has defied time for three millennia is now being connected to the twenty-first century — without losing a single stone of what makes it sacred.
+      </p>
+      <span class="read-more">Read Full Issue</span>
+    </div>
+  </a>
+  
+  <!-- Issue 1 -->
+  <a href="UPAD_Times_Issue01_March2026.html" class="issue-card">
+    <div class="issue-header">
+      <div class="issue-number">Issue 1</div>
+      <h2 class="issue-title">Inaugural Edition</h2>
+      <div class="issue-date">March 2026</div>
+    </div>
+    <div class="issue-content">
+      <div class="issue-topics">
+        <span class="topic-tag">Development</span>
+        <span class="topic-tag navy">Economy</span>
+        <span class="topic-tag">Community</span>
+      </div>
+      <p class="issue-description">
+        Our first issue exploring the economic transformation of Uttar Pradesh, connecting diaspora communities, and celebrating our shared heritage.
+      </p>
+      <span class="read-more">Read Full Issue</span>
+    </div>
+  </a>
+  
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p class="footer-text">Voice of Our Heritage · Bridge to Our Future</p>
+  <div class="footer-links">
+    <a href="#" class="footer-link">About</a>
+    <a href="#" class="footer-link">Write for Us</a>
+    <a href="#" class="footer-link">Subscribe</a>
+    <a href="#" class="footer-link">Contact</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
